@@ -1,20 +1,19 @@
 {
-    "id": "",
+    "id": "jrrp",
     "version": "1.0.0",
-    "name": "",
-    "description": {
-        "en_us": "",
-        "zh_cn": ""
-    },
+    "name": "Jrrp",
+    "description": "《今日人品》",
     "author": [
         "Huaji_MUR233"
     ],
-    "link": "https://github.com/HuajiMURsMC/",
+    "link": "https://github.com/HuajiMURsMC/jrrp",
     "dependencies": {
-        "mcdreforged": ">=2.1.4"
+        "mcdreforged": ">=2.1.4",
+        "mc_uuid": ">=1.0.0"
     },
 
     "resources": [
         "LICENSE"
-    ]
+    ],
+    "entrypoint": "jrrp.entry"
 }
