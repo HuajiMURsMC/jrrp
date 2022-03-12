@@ -62,3 +62,4 @@ def on_load(server: PluginServerInterface, old):
             .requires(lambda src: src.is_player)
             .runs(lambda src: src.reply(get_jrrp_msg(mc_uuid.onlineUUID(src.player).hex if config["online_mode"] else mc_uuid.offlineUUID(src.player).hex)))
         )
+        server.register_help_message(config["command"], "今日人品")
