@@ -2,7 +2,6 @@ from datetime import datetime
 
 from mcdreforged.api.types import PluginServerInterface
 from mcdreforged.api.command import Literal
-import mc_uuid
 
 
 DEFAULT_CONFIG = {
@@ -12,19 +11,9 @@ DEFAULT_CONFIG = {
 }
 
 
-def __get_hash(string: str):
-    num1 = 5381
-    num2 = len(string) - 1
-    index = 0
-    while index <= num2:
-        num1 = num1 << 5 ^ num1 ^ ord(string[index])
-        index += 1
-    return num1 ^ 12218072394304324399
-
-
 def get_jrrp(string: str):
     now = datetime.now()
-    num1 = round((abs((__get_hash("asdfgbn" + str(now.timetuple().tm_yday) + "12#3$45" + str(now.year) + "IUY") / 3.0 + __get_hash("QWERTY" + string + "0*8&6" + str(now.day) + "kjhg") / 3.0) / 527.0) % 1001.0))
+    num1 = round((abs((hash("asdfgbn" + str(now.timetuple().tm_yday) + "12#3$45" + str(now.year) + "IUY") / 3.0 + hash("QWERTY" + string + "0*8&6" + str(now.day) + "kjhg") / 3.0) / 527.0) % 1001.0))
     num2 = round(num1 / 969.0 * 99.0) if num1 < 970 else 100
     return num2
 
@@ -56,6 +45,7 @@ def get_jrrp_msg(uuid: str):
 
 def on_load(server: PluginServerInterface, old):
     config = server.load_config_simple(default_config=DEFAULT_CONFIG)
+    mc_uuid = server.get_plugin_instance("mc_uuid")
     if config["enable"]:
         server.register_command(
             Literal(config["command"])
