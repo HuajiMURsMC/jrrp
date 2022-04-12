@@ -19,7 +19,7 @@ def register_jrrp_command(server: PluginServerInterface):
         uuid = mc_uuid.onlineUUID(src.player).hex if config.online_mode else mc_uuid.offlineUUID(src.player).hex
         jrrp = get_jrrp(uuid)
         for msg_obj in config.message:
-            if eval(msg_obj["expr"], {}, {"jrrp": jrrp}):
+            if eval(msg_obj["expr"]):
                 start = msg_obj.get("start") if msg_obj.get("start") else config.start
                 end = msg_obj.get("end") if msg_obj.get("end") else config.end
                 title = msg_obj.get("title") if msg_obj.get("title") else config.title
