@@ -7,11 +7,14 @@ class JrrpConfig(Serializable):
 	online_mode: bool = True
 	start: str = "你今天的人品值是："
 	end: str = ""
+	title: bool = False
 	command: List[str] = ["!!jrrp"]
 	message: List[dict] = [
 		{
 			"expr": "jrrp == 100",
-			"end": "！100！100！！！！！"
+			"start": "！！！！！你今天的人品值是：",
+			"end": "！100！100！！！！！",
+			"title": True
 		},
 		{
 			"expr": "jrrp == 99",
