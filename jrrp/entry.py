@@ -3,7 +3,6 @@ import os.path
 
 from mcdreforged.api.types import PluginServerInterface, PlayerCommandSource
 from mcdreforged.api.command import Literal
-from pydantic import Protocol
 
 from .config import JrrpConfig
 
