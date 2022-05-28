@@ -32,7 +32,7 @@ def get_jrrp(string: str):
         "IUY"
     ])) / 3 + get_hash("".join([
         "QWERTY",
-        key,
+        string,
         "0*8&6",
         str(now.tm_mday),
         "kjhg"
